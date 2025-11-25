@@ -8,3 +8,7 @@ This ends up meaning I have dozens of them by the end of a month and need to jus
 
 This will help me do this faster, hopefully, and keep the date the link was created. 
 
+## How
+
+[![Watch the video](https://drive.google.com/thumbnail?id=1Go3rx5l05f-ZM7OH-ZNVA50w41E_w9s8&sz=s225)](https://youtu.be/LzBa9w2SuZs)
+

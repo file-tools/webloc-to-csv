@@ -7,12 +7,28 @@
 // ============================================================================
 // CONFIGURATION - Set your path here
 // ============================================================================
-$basePath = 'xxxx';  // Change this to your target directory
+$basePath = '';  // Change this to your target directory
 $outputCsv = 'webloc_export_' . date('Y-m-d_H-i-s') . '.csv';
 
 // ============================================================================
 // MAIN SCRIPT
 // ============================================================================
+
+// Ask for a path when one has not been configured.
+if (!isset($basePath) || trim($basePath) === '') {
+    echo "Enter the directory to scan: ";
+    $input = fgets(STDIN);
+    if ($input === false || trim($input) === '') {
+        die("Error: No directory was provided.\n");
+    }
+    $basePath = trim($input);
+    // Terminal drag-and-drop can wrap paths in quotes or escape special characters.
+    if (preg_match('/^([\'"])(.*)\1$/s', $basePath, $matches)) {
+        $basePath = $matches[2];
+    } else {
+        $basePath = preg_replace('/\\\\(.)/s', '$1', $basePath);
+    }
+}
 
 // Validate base path
 if (!is_dir($basePath)) {
